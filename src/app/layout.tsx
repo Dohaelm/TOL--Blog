@@ -9,7 +9,7 @@ import '@/styles/globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Breadit',
+  title: 'Think Out Loud',
   description: 'A Reddit clone built with Next.js and TypeScript.',
 }
 
@@ -27,6 +27,10 @@ export default function RootLayout({
         'bg-white text-slate-900 antialiased light',
         inter.className
       )}>
+        <head>
+        <link rel="icon" type="image/x-icon" href="pen.ico"/>
+        </head>
+      
       <body className='min-h-screen pt-12 bg-slate-50 antialiased'>
         <Providers>
           {/* @ts-expect-error Server Component */}
