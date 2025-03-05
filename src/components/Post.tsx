@@ -21,7 +21,7 @@ interface PostProps {
   commentAmt: number
 }
 
-const Post: FC<PostProps> = ({
+const PostSchema: FC<PostProps> = ({
   post,
   votesAmt: _votesAmt,
   currentVote: _currentVote,
@@ -82,4 +82,4 @@ const Post: FC<PostProps> = ({
     </div>
   )
 }
-export default Post
+export default PostSchema
