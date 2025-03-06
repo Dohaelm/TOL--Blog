@@ -10,16 +10,14 @@ import { notFound } from 'next/navigation'
 import { ReactNode } from 'react'
 
 export const metadata: Metadata = {
-  title: 'Breadit',
+  title: 'Think Out Loud',
   description: 'A Reddit clone built with Next.js and TypeScript.',
 }
-const Layout = async ({
-  children,
-  params,
-}: {
+interface LayoutProps {
   children: ReactNode
   params: Promise<{ slug: string }>
-}) => {
+}
+const Layout = async ({ children, params }: LayoutProps) => {
   const { slug } = await params // ✅ Await params inside the function
 
   const session = await getAuthSession()
