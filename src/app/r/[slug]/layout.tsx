@@ -22,6 +22,7 @@ const Layout = async ({
   params: { slug: string }
 }) => {
   const session = await getAuthSession()
+  console.log(slug)
 
   const subreddit = await db.subreddit.findFirst({
     where: { name: slug },
@@ -106,7 +107,7 @@ const Layout = async ({
                   variant: 'outline',
                   className: 'w-full mb-6',
                 })}
-                href={`r/${slug}/submit`}>
+                href={`/r/${slug}/submit`}>
                 Create Post
               </Link>
             </dl>

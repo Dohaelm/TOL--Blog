@@ -99,19 +99,34 @@ export const Editor: React.FC<EditorProps> = ({ subredditId }) => {
             config: {
               uploader: {
                 async uploadByFile(file: File) {
-                  // upload to uploadthing
-                  const [res] = await uploadFiles([file], 'imageUploader')
-
-                  return {
-                    success: 1,
-                    file: {
-                      url: res.fileUrl,
-                    },
+                  try {
+                    // ✅ Correct order of arguments
+                    const [res] = await uploadFiles('imageUploader', { files: [file] });
+          
+                    console.log('Upload response:', res); // Debugging
+          
+                    if (res?.url) { // ✅ Correct property
+                      return {
+                        success: 1,
+                        file: {
+                          url: res.url, // ✅ Correct URL for ImageTool
+                        },
+                      };
+                    } else {
+                      throw new Error('File URL not found in response');
+                    }
+                  } catch (error) {
+                    console.error('Error uploading file:', error);
+                    return {
+                      success: 0,
+                      error: 'Upload failed',
+                    };
                   }
                 },
               },
             },
           },
+          
           list: List,
           code: Code,
           inlineCode: InlineCode,
