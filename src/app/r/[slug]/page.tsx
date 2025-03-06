@@ -5,11 +5,13 @@ import { getAuthSession } from '@/lib/auth'
 import { db } from '@/lib/db'
 import { notFound } from 'next/navigation'
 interface PageProps {
-  params: Promise<{ slug: string }>
+  params: { slug: string }
 }
 
+
 const page = async ({ params }: PageProps) => {
-  const { slug } = await params
+  // Ensure params is accessed properly in the async function
+  const { slug } = params
 
   const session = await getAuthSession()
 
