@@ -13,14 +13,15 @@ export const metadata: Metadata = {
   title: 'Breadit',
   description: 'A Reddit clone built with Next.js and TypeScript.',
 }
-
 const Layout = async ({
   children,
-  params: { slug },
+  params,
 }: {
   children: ReactNode
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) => {
+  const { slug } = await params // ✅ Await params inside the function
+
   const session = await getAuthSession()
   console.log(slug)
 
@@ -65,7 +66,6 @@ const Layout = async ({
     <div className='sm:container max-w-7xl mx-auto h-full pt-12'>
       <div>
         <ToFeedButton />
-
         <div className='grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 py-6'>
           <ul className='flex flex-col col-span-2 space-y-6'>{children}</ul>
 
@@ -107,7 +107,8 @@ const Layout = async ({
                   variant: 'outline',
                   className: 'w-full mb-6',
                 })}
-                href={`/r/${slug}/submit`}>
+                href={`/r/${slug}/submit`}
+              >
                 Create Post
               </Link>
             </dl>
