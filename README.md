@@ -1,81 +1,46 @@
+# Think Out Loud - Online Blog
 
-# Breadit - A Modern Fullstack Reddit Clone 
-
-Built with the Next.js App Router, TypeScript & Tailwind
-
+Think Out Loud is an online blog application built with **Next.js**, **MySQL**, **UploadThing**, and **NextAuth**. It allows users to log in using their Google account, create and view blog posts, and store media files using UploadThing.
 
 ## Features
+- **Google Authentication** via NextAuth.js
+- **Blogging Platform** to create, read, and manage blog posts
+- **Media File Uploads** using UploadThing
+- **MySQL Database** powered by **Neon Tech**
+- **Deployed on Vercel** for easy access and scalability
 
- - Infinite scrolling for dynamically loading posts
- - Authentication using NextAuth & Google
- - Custom feed for authenticated users
- - Advanced caching using [Upstash Redis](https://upstash.com/?utm_source=Josh2)
- - Optimistic updates for a great user experience
- - Modern data fetching using React-Query
- - A beautiful and highly functional post editor
- - Image uploads & link previews
- - Full comment functionality with nested replies
- - ... and much more
+**Test App**: This is a test app and has not yet been verified by Google. You can access the deployed version here: [Think Out Loud Blog](https://tol-blog.vercel.app/).
 
 
-## Getting started
+## Installation
 
-To get started with this project, run
+To get started with this project locally, follow these steps:
+
+### 1. Clone the Repository
 
 ```bash
-  git clone -b starter-code https://github.com/joschan21/breadit.git
+git clone https://github.com/Dohaelm/TOL--Blog.git
 ```
-
-and copy these .env.example variables into a separate .env file:
-
+### 2. Create .env file
+Create a .env file at the root of the project and fill in the following details:
 ```bash
-DATABASE_URL=
-NEXTAUTH_SECRET=
-
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
-
-UPLOADTHING_SECRET=
-UPLOADTHING_APP_ID=
-
-REDIS_URL=
-REDIS_SECRET=
+DATABASE_URL=your-database-url
+NEXTAUTH_SECRET=your-nextauth-secret
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+UPLOADTHING_TOKEN=your-uploadthing-token
+REDIS_URL=your-redis-url
+REDIS_SECRET=your-redis-secret
+```
+### 3. Install dependencies 
+```bash
+npm install
+```
+### 4. Start server ! 
+```bash
+npm run dev 
 ```
 
-if you'd like, you can paste this snippet for quick component creation (optional):
-```typescript
-// vscode settings -> user snippets -> typescriptreact.json
-```
-
-```json
-"Typescript React Function Component": {
-    "prefix": "fc",
-    "body": [
-      "import { FC } from 'react'",
-      "",
-      "interface ${TM_FILENAME_BASE}Props {",
-      "  $1",
-      "}",
-      "",
-      "const $TM_FILENAME_BASE: FC<${TM_FILENAME_BASE}Props> = ({$2}) => {",
-      "  return <div>$TM_FILENAME_BASE</div>",
-      "}",
-      "",
-      "export default $TM_FILENAME_BASE"
-    ],
-    "description": "Typescript React Function Component"
-  },
-  ```
-
-and that's all you need to get started!
 
 
-## Acknowledgements
 
-- [Upstash Redis](https://upstash.com/?utm_source=Josh2) for making this possible
-- [Code with Antonio](https://www.youtube.com/@codewithantonio) for thumbnail design inspiration
-- Shadcn's [Taxonomy respository](https://github.com/shadcn/taxonomy) for showcasing the post editor
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
