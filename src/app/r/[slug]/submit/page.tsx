@@ -4,9 +4,7 @@ import { db } from '@/lib/db'
 import { notFound } from 'next/navigation'
 
 interface pageProps {
-  params: {
-    slug: string
-  }
+  params: Promise<{ slug: string }>
 }
 const page = async ({ params }: pageProps) => {
   const { slug } = await params // ✅ Attendre que params soit résolu
